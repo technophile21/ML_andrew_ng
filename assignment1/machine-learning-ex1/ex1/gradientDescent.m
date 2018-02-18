@@ -27,6 +27,14 @@ for iter = 1:num_iters
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCost(X, y, theta);
+    
+    % gradient
+    h = X * theta;
+    diff = h - y;
+    dJ = (diff' * X) / m;
+    
+    % Parameters update
+    theta = theta - (alpha * dJ');
 
 end
 
